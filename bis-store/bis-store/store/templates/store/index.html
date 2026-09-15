@@ -1,0 +1,11 @@
+{% extends "store/base.html" %}
+
+{% comment %}
+Full-page shell. Everything that changes lives in partials/app.html so that
+htmx can swap just that fragment, and so a non-htmx browser gets the same
+markup from a normal form POST.
+{% endcomment %}
+
+{% block content %}
+  {% include "store/partials/app.html" %}
+{% endblock %}

@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Only scan Django templates. */
+@source "../store/templates";

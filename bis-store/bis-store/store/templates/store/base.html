@@ -1,0 +1,44 @@
+{% comment %}
+=============================================================================
+ DESIGN PATTERN #1 -- MVT / MVC  ->  THE "T" LAYER  (architectural)
+=============================================================================
+Templates are the presentation layer. They receive a context dictionary from
+store/views.py and render it. They never calculate a price, never decide what
+happens next, and never talk to the Singleton directly.
+=============================================================================
+{% endcomment %}
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BIS Store — design pattern prototype</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <script src="{% static 'js/htmx.min.js' %}" defer></script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-900 antialiased">
+
+  <header class="border-b border-slate-300 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-5">
+      <div>
+        <h1 class="text-xl font-semibold tracking-tight">BIS Store</h1>
+        <p class="text-sm text-slate-500">
+          A checkout prototype built to demonstrate three design patterns
+        </p>
+      </div>
+      <div class="flex items-center gap-3 font-mono text-xs text-slate-500">
+        <span class="rounded border border-slate-300 px-2 py-1">Django MVT</span>
+        <span class="rounded border border-slate-300 px-2 py-1">Singleton</span>
+        <span class="rounded border border-slate-300 px-2 py-1">Strategy</span>
+      </div>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer class="mx-auto max-w-6xl px-5 py-10 text-sm text-slate-500">
+    Django 5 · Tailwind CSS · htmx — no database, all state is held in memory.
+  </footer>
+
+</body>
+</html>
